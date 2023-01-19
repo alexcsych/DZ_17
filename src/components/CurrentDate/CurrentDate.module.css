@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: rgb(56 206 196);
+}
+
+.currentWeekday {
+  font-size: 35px;
+  margin: 0px;
+}
+
+.currentDay {
+  font-size: 200px;
+  margin: 0px;
+}
