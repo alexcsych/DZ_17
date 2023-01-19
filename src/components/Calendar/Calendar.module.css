@@ -9,7 +9,6 @@
 
 .currentDay {
   color: red;
-  /* border: 2px solid red; */
   border-radius: 50%;
   box-shadow: 0px 0px 10px red;
 }

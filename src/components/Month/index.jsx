@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Head from "../Head";
 import TableHead from "../TableHead";
-// import Week from "../Week";
 import styles from "./Month.module.css";
 
 class Month extends Component {

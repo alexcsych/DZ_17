@@ -10,8 +10,6 @@ import {
   getYear,
   addDays,
   parse,
-  isSameDay,
-  isSameMonth,
 } from "date-fns";
 import styles from "./Calendar.module.css";
 import CurrentDate from "../CurrentDate";
