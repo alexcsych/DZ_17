@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import Head from "../Head";
 import TableHead from "../TableHead";
-import Week from "../Week";
+// import Week from "../Week";
 import styles from "./Month.module.css";
 
 class Month extends Component {
   render() {
     const headContent = this.props.headContent;
+    const monthDaysTable = this.props.monthDaysTable;
     return (
       <div className={styles.container}>
         <Head headContent={headContent} />
-        <table>
+        <table className={styles.tableContent}>
           <TableHead />
-          <Week />
+          <tbody>{monthDaysTable}</tbody>
         </table>
       </div>
     );

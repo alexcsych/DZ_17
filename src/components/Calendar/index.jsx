@@ -73,26 +73,36 @@ class Calendar extends Component {
       );
       // отримати всі 7 дат тижня по першому дню тижня
       for (let j = 0; j < 7; j++) {
-        weekDays.push(getDate(addDays(startWeekDay, j)));
+        let dataWeek = getDate(addDays(startWeekDay, j));
+        weekDays.push(
+          (i === 0 && dataWeek > 8) || (i === endWeek && dataWeek < 7)
+            ? ""
+            : dataWeek
+        );
       }
       monthDays.push(weekDays);
     }
 
-    // перевірка, чи співпадають 2 дати (щоб підсвітити поточну дату в календарі)
-    const isTheSameDay1 = isSameDay(currentDate, new Date(2022, 0, 19));
-    const isTheSameDay2 = isSameDay(currentDate, currentDate);
-
-    // перевірка, чи відноситься дата до виводимого справа місяця
-    // (щоб відображати дати поточного місяця і не відображати або притіняти дати попереднього/наступного місяців)
-    const isTheSameMonth1 = isSameMonth(date, new Date(2021, 0, 7));
-    const isTheSameMonth2 = isSameMonth(date, new Date(2023, 0, 7));
+    const monthDaysTable = monthDays.map((u, i) => (
+      <tr key={i}>
+        {u.map((a, j) =>
+          a === currentDay ? (
+            <td className={styles.currentDay} key={j}>
+              {a}
+            </td>
+          ) : (
+            <td key={j}>{a}</td>
+          )
+        )}
+      </tr>
+    ));
 
     const headContent = `${currentMonth} ${currentYear}`;
 
     return (
       <div className={styles.flexContainer}>
         <CurrentDate currentDay={currentDay} currentWeekday={currentWeekday} />
-        <Month headContent={headContent} />
+        <Month headContent={headContent} monthDaysTable={monthDaysTable} />
       </div>
     );
   }
